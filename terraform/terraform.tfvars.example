@@ -1,0 +1,3 @@
+project_id  = "cat > terraform/terraform.tfvars << EOF
+project_id  = "portfolio-site-514615"
+alert_email = "akmiranda305@gmail.com"
