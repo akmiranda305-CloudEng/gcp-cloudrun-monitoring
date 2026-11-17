@@ -71,6 +71,6 @@ resource "google_monitoring_alert_policy" "site_down" {
 
   documentation {
     mime_type = "text/markdown"
-    content   = "The public site is failing its uptime check from multiple locations. Check the Cloud Run service status and the most recent deployment first. A runbook is coming in a later part of this project."
+    content   = "The public site is failing its uptime check from multiple locations. Follow the runbook: https://github.com/akmiranda305-CloudEng/gcp-cloudrun-monitoring/blob/main/docs/runbook.md"
   }
 }

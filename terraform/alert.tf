@@ -29,6 +29,6 @@ resource "google_monitoring_alert_policy" "site_errors" {
 
   documentation {
     mime_type = "text/markdown"
-    content   = "The Cloud Run service is returning 5xx errors. Check the most recent deployment first, then the Cloud Run logs for errors. If a recent deploy caused it, roll back to the previous revision. A full runbook is coming later in this project."
+    content   = "The Cloud Run service is returning 5xx errors. Check the most recent deployment first, and roll back if needed. Follow the runbook: https://github.com/akmiranda305-CloudEng/gcp-cloudrun-monitoring/blob/main/docs/runbook.md"
   }
 }
