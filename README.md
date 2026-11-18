@@ -28,6 +28,9 @@ flowchart LR
   TF -.->|provisions| CH
   TF --- State[("GCS state bucket")]
 ```
+## How it works
+
+Terraform provisions all of the monitoring for the Cloud Run site. Uptime check probes in four regions request the site's home page every five minutes, and Cloud Run reports its own request count and latency. Both streams of data flow into Cloud Monitoring, which feeds four things: a dashboard showing request rates by response class, latency, and uptime; an availability SLO targeting 99.5% of requests over 28 days; and two alert policies, one that fires when the uptime check fails from more than one location and one that fires on any 5xx response. When an alert fires, it sends an email through a notification channel to the on-call engineer, who follows the runbook to confirm the problem, find the recent change, and roll back. I tested this chain by deliberately deploying a broken release: the alert fired about four minutes later, and the full write-up is in the postmortem.
 
 ## What it monitors
 
